@@ -883,28 +883,28 @@
 
     <script>
       // Gemini API Configuration
-      const GEMINI_API_KEY = 'AIzaSyBVU2NQ_G3foyY-ejx-l5zSyp6XzMFVDes';
-      const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+      const GEMINI_API_KEY = 'AIzaSyBVU2NQ_G3foyY-ejx-l5zSyp6XzMFVDes'; // Replace with your actual Gemini API key
+      const GEMINI_API_URL ='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
       
       // Discord Webhook Configuration
-      const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1376919558090133715/X85jNYm8oZj3x2UqC2nqaDq-BXvvX23mOB6DZIZRQCzlhJoZkH74PKxHPjR704rUGkkl';
+      const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1376919558090133715/X85jNYm8oZj3x2UqC2nqaDq-BXvvX23mOB6DZIZRQCzlhJoZkH74PKxHPjR704rUGkkl'; // Replace with your actual Discord webhook URL
       
       // Chat contexts for different personalities
       const chatContexts = {
         chat1: {
-          systemMessage: 'You are AK AI, an advanced and helpful AI assistant. Be engaging, intelligent, helpful with users tasks and requests. Focus on being supportive and informative.',
+          systemMessage: 'You are AK AI, a helpful assistant designed to follow user instructions precisely and provide engaging, intelligent, and supportive responses. Assist with any questions or tasks as directed by the user.',
           messages: []
         },
         chat2: {
-          systemMessage: 'You are a Code Helper AI, specialized in programming, debugging, code review, and technical problem-solving. Help users with coding challenges, explain concepts clearly, and provide working solutions.',
+          systemMessage: 'You are Code Helper, a specialized AI that follows user instructions to assist with programming, debugging, code review, and technical problem-solving. Provide clear, accurate, and working solutions as directed.',
           messages: []
         },
         chat3: {
-          systemMessage: 'You are a Creative AI, focused on creativity, imagination, storytelling, and artistic projects. Be inspiring, innovative, and help users express their creative ideas.',
+          systemMessage: 'You are Creative AI, a creative assistant that follows user instructions to help with writing, brainstorming, storytelling, art concepts, and creative projects. Be inspiring and innovative as directed.',
           messages: []
         },
         chat4: {
-          systemMessage: 'You are a Technical Expert AI, specialized in complex problem-solving, system analysis, research, and technical documentation. Be precise, detailed, and thorough.',
+          systemMessage: 'You are Technical Expert, a specialized AI that follows user instructions for complex problem-solving, system analysis, research, and technical documentation. Be precise and thorough as directed.',
           messages: []
         }
       };
@@ -1217,15 +1217,18 @@
         try {
           const context = chatContexts[chatId];
           
-          const contents = [
-            {
+          // Initialize contents with system message as the first user message if the chat is empty
+          const contents = [];
+          if (context.messages.length === 0) {
+            contents.push({
+              role: 'user',
               parts: [{ text: context.systemMessage }]
-            },
-            ...context.messages.slice(-10),
-            {
-              parts: [{ text: message }]
-            }
-          ];
+            });
+          }
+          contents.push(...context.messages.slice(-10), {
+            role: 'user',
+            parts: [{ text: message }]
+          });
 
           console.log('Sending request to Gemini API...');
           
@@ -1242,9 +1245,9 @@
           console.log('Response status:', response.status);
 
           if (!response.ok) {
-            const errorData = await response.text();
+            const errorData = await response.json();
             console.error('API Error Response:', errorData);
-            throw new Error(`API Error: ${response.status} - ${errorData}`);
+            throw new Error(`API Error: ${response.status} - ${errorData.error.message}`);
           }
 
           const data = await response.json();
@@ -1263,7 +1266,7 @@
         } catch (error) {
           hideTyping(chatId);
           console.error('Error details:', error);
-          addMessage(`❌ Connection error: ${error.message}. Please try again.`, false, chatId);
+          addMessage(`❌ Connection error: ${error.message}. Please check your API key or try again later.`, false, chatId);
         } finally {
           sendButton.disabled = false;
         }
@@ -1338,4 +1341,3 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
 </html>
-
