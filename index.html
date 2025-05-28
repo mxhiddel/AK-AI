@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚀 AK AI - Next Generation Intelligence</title>
+    <meta name="description" content="The Most Advanced Futuristic AI Interface powered by Gemini" />
+    <meta name="author" content="Mxhid_dll" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: radial-gradient(ellipse at center, #0a0a1a 0%, #000000 70%);
+        color: #ffffff;
+        overflow-x: hidden;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      /* Enhanced Particle System with More Particles */
+      .particle-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .particle-1 {
+        width: 3px;
+        height: 3px;
+        background: linear-gradient(45deg, #00ffff, #0080ff);
+        box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        animation: float-1 8s ease-in-out infinite;
+      }
+
+      .particle-2 {
+        width: 2px;
+        height: 2px;
+        background: linear-gradient(45deg, #ff00ff, #8000ff);
+        box-shadow: 0 0 8px #ff00ff, 0 0 16px #ff00ff;
+        animation: float-2 6s ease-in-out infinite;
+      }
+
+      .particle-3 {
+        width: 4px;
+        height: 4px;
+        background: linear-gradient(45deg, #00ff80, #0040ff);
+        box-shadow: 0 0 12px #00ff80, 0 0 24px #00ff80;
+        animation: float-3 10s ease-in-out infinite;
+      }
+
+      .particle-4 {
+        width: 5px;
+        height: 5px;
+        background: linear-gradient(45deg, #ff4080, #ff8040);
+        box-shadow: 0 0 15px #ff4080, 0 0 25px #ff4080;
+        animation: spiral-float 12s ease-in-out infinite;
+      }
+
+      .particle-5 {
+        width: 1px;
+        height: 1px;
+        background: linear-gradient(45deg, #ffff00, #ff0080);
+        box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00;
+        animation: zigzag-float 7s ease-in-out infinite;
+      }
+
+      @keyframes float-1 {
+        0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.7; }
+        25% { transform: translateY(-30px) translateX(20px) rotate(90deg); opacity: 1; }
+        50% { transform: translateY(-60px) translateX(-10px) rotate(180deg); opacity: 0.8; }
+        75% { transform: translateY(-30px) translateX(-30px) rotate(270deg); opacity: 1; }
+      }
+
+      @keyframes float-2 {
+        0%, 100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.6; }
+        33% { transform: translateY(-40px) translateX(-25px) scale(1.5); opacity: 1; }
+        66% { transform: translateY(-20px) translateX(35px) scale(0.8); opacity: 0.9; }
+      }
+
+      @keyframes float-3 {
+        0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); opacity: 0.5; }
+        20% { transform: translateY(-50px) translateX(40px) rotate(72deg) scale(1.2); opacity: 0.8; }
+        40% { transform: translateY(-80px) translateX(-20px) rotate(144deg) scale(0.9); opacity: 1; }
+        60% { transform: translateY(-60px) translateX(-45px) rotate(216deg) scale(1.1); opacity: 0.7; }
+        80% { transform: translateY(-30px) translateX(30px) rotate(288deg) scale(0.8); opacity: 0.9; }
+      }
+
+      @keyframes spiral-float {
+        0% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); opacity: 0.4; }
+        25% { transform: translateY(-60px) translateX(60px) rotate(180deg) scale(1.3); opacity: 0.8; }
+        50% { transform: translateY(-120px) translateX(0px) rotate(360deg) scale(0.7); opacity: 1; }
+        75% { transform: translateY(-60px) translateX(-60px) rotate(540deg) scale(1.1); opacity: 0.6; }
+        100% { transform: translateY(0px) translateX(0px) rotate(720deg) scale(1); opacity: 0.4; }
+      }
+
+      @keyframes zigzag-float {
+        0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+        12.5% { transform: translateY(-15px) translateX(30px); opacity: 0.7; }
+        25% { transform: translateY(-30px) translateX(-20px); opacity: 1; }
+        37.5% { transform: translateY(-45px) translateX(40px); opacity: 0.8; }
+        50% { transform: translateY(-60px) translateX(-10px); opacity: 0.9; }
+        62.5% { transform: translateY(-45px) translateX(25px); opacity: 0.6; }
+        75% { transform: translateY(-30px) translateX(-35px); opacity: 0.8; }
+        87.5% { transform: translateY(-15px) translateX(15px); opacity: 0.5; }
+      }
+
+      /* Hover Particles */
+      .hover-particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(circle, #00ffff, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: hover-fade 2s ease-out forwards;
+        z-index: 100;
+      }
+
+      @keyframes hover-fade {
+        0% { 
+          opacity: 1; 
+          transform: scale(0) translateY(0px);
+          box-shadow: 0 0 20px #00ffff;
+        }
+        50% { 
+          opacity: 0.8; 
+          transform: scale(1.5) translateY(-30px);
+          box-shadow: 0 0 30px #00ffff, 0 0 40px #ff00ff;
+        }
+        100% { 
+          opacity: 0; 
+          transform: scale(2) translateY(-60px);
+          box-shadow: 0 0 10px transparent;
+        }
+      }
+
+      /* Neural Network Background */
+      .neural-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.15;
+      }
+
+      .neural-line {
+        position: absolute;
+        background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        height: 1px;
+        animation: neural-pulse 4s ease-in-out infinite;
+      }
+
+      .neural-node {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #00ffff, transparent);
+        border-radius: 50%;
+        animation: node-pulse 3s ease-in-out infinite;
+      }
+
+      @keyframes neural-pulse {
+        0%, 100% { opacity: 0; transform: scaleX(0); }
+        50% { opacity: 1; transform: scaleX(1); }
+      }
+
+      @keyframes node-pulse {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.5); }
+      }
+
+      /* Main Container */
+      .container {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header with Enhanced Glow */
+      .header {
+        text-align: center;
+        padding: 30px 0;
+        background: rgba(0, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        margin-bottom: 20px;
+        border: 2px solid rgba(0, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        animation: glow-pulse 3s ease-in-out infinite;
+      }
+
+      .header::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff80, #0080ff);
+        border-radius: 25px;
+        z-index: -1;
+        animation: border-glow 4s ease-in-out infinite;
+      }
+
+      @keyframes glow-pulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6), 0 0 60px rgba(255, 0, 255, 0.3); }
+      }
+
+      @keyframes border-glow {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+      }
+
+      .title {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        font-weight: bold;
+        background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff80, #0080ff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 15px;
+        animation: text-glow 2s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+      }
+
+      @keyframes text-glow {
+        0%, 100% { filter: brightness(1); }
+        50% { filter: brightness(1.3); }
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        color: #00ffff;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+
+      /* Credits Section */
+      .credits {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 10px 15px;
+        border-radius: 15px;
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        font-size: 12px;
+        color: #00ffff;
+        z-index: 1000;
+        animation: credits-glow 4s ease-in-out infinite;
+      }
+
+      @keyframes credits-glow {
+        0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+        50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); }
+      }
+
+      /* Tab System */
+      .tab-container {
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        margin-bottom: 20px;
+        overflow: hidden;
+        animation: slide-up 0.8s ease-out;
+      }
+
+      .tabs {
+        display: flex;
+        background: rgba(0, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+      }
+
+      .tab {
+        flex: 1;
+        padding: 15px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        background: transparent;
+        color: #ffffff;
+        font-size: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tab::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .tab:hover::before {
+        left: 100%;
+      }
+
+      .tab.active {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+        color: #00ffff;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+      }
+
+      .tab:hover {
+        background: rgba(0, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      /* Chat Container */
+      .chat-container {
+        flex: 1;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        border: 2px solid rgba(0, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        animation: fade-in 1s ease-out 0.3s both;
+        min-height: 600px;
+      }
+
+      .chat-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .chat-messages {
+        flex: 1;
+        padding: 25px;
+        overflow-y: auto;
+        position: relative;
+        z-index: 1;
+        max-height: 500px;
+      }
+
+      .message {
+        margin-bottom: 20px;
+        animation: message-appear 0.6s ease-out;
+        position: relative;
+      }
+
+      @keyframes message-appear {
+        from {
+          opacity: 0;
+          transform: translateY(20px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .message.user {
+        text-align: right;
+      }
+
+      .message-bubble {
+        display: inline-block;
+        max-width: 75%;
+        padding: 18px 25px;
+        border-radius: 20px;
+        position: relative;
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+      }
+
+      .message-bubble::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+        z-index: -1;
+      }
+
+      .message.user .message-bubble {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2));
+        border: 1px solid rgba(0, 255, 255, 0.4);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        margin-left: auto;
+      }
+
+      .message.ai .message-bubble {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+      }
+
+      /* Enhanced Typing Indicator */
+      .typing-indicator {
+        display: none;
+        padding: 20px 25px;
+        background: rgba(0, 255, 255, 0.1);
+        border-radius: 20px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      .typing-text {
+        color: #00ffff;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .typing-dots {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .typing-dot {
+        width: 10px;
+        height: 10px;
+        background: linear-gradient(45deg, #00ffff, #ff00ff);
+        border-radius: 50%;
+        animation: typing-bounce 1.5s ease-in-out infinite;
+        box-shadow: 0 0 10px #00ffff;
+      }
+
+      .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+      .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+      .typing-dot:nth-child(4) { animation-delay: 0.6s; }
+
+      @keyframes typing-bounce {
+        0%, 60%, 100% { transform: translateY(0) scale(1); }
+        30% { transform: translateY(-15px) scale(1.2); }
+      }
+
+      /* Chat Input */
+      .chat-input-container {
+        padding: 25px;
+        border-top: 1px solid rgba(0, 255, 255, 0.2);
+        display: flex;
+        gap: 15px;
+        position: relative;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .chat-input {
+        flex: 1;
+        padding: 18px 25px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(0, 255, 255, 0.3);
+        border-radius: 30px;
+        color: #ffffff;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .chat-input:focus {
+        border-color: #00ffff;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+        background: rgba(0, 0, 0, 0.4);
+      }
+
+      .chat-input::placeholder {
+        color: rgba(0, 255, 255, 0.6);
+      }
+
+      .send-button {
+        background: linear-gradient(135deg, #00ffff, #ff00ff);
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+      }
+
+      .send-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .send-button:hover::before {
+        left: 100%;
+      }
+
+      .send-button:hover {
+        transform: scale(1.1) rotate(10deg);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 50px rgba(255, 0, 255, 0.3);
+      }
+
+      .send-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Animations */
+      @keyframes slide-up {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Scrollbar */
+      .chat-messages::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .chat-messages::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+      }
+
+      .chat-messages::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #00ffff, #ff00ff);
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+
+      .chat-messages::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #00e6e6, #e600e6);
+      }
+
+      /* Status Messages */
+      .status-message {
+        text-align: center;
+        padding: 12px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        animation: status-appear 0.5s ease-out;
+        border: 1px solid;
+      }
+
+      .status-success {
+        background: rgba(0, 255, 128, 0.15);
+        border-color: rgba(0, 255, 128, 0.4);
+        color: #00ff80;
+        box-shadow: 0 0 15px rgba(0, 255, 128, 0.3);
+      }
+
+      .status-error {
+        background: rgba(255, 64, 128, 0.15);
+        border-color: rgba(255, 64, 128, 0.4);
+        color: #ff4080;
+        box-shadow: 0 0 15px rgba(255, 64, 128, 0.3);
+      }
+
+      @keyframes status-appear {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+        
+        .message-bubble {
+          max-width: 90%;
+        }
+        
+        .chat-input-container {
+          padding: 20px;
+        }
+
+        .tabs {
+          flex-direction: column;
+        }
+
+        .tab {
+          border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .tab:last-child {
+          border-bottom: none;
+        }
+
+        .credits {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          margin-top: 20px;
+          text-align: center;
+        }
+      }
+
+      /* Additional Glow Effects */
+      .glow {
+        animation: ambient-glow 3s ease-in-out infinite;
+      }
+
+      @keyframes ambient-glow {
+        0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.4)); }
+        50% { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 0, 255, 0.4)); }
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      /* New Chat Button */
+      .new-chat-btn {
+        background: linear-gradient(135deg, #ff00ff, #00ffff);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+        font-size: 14px;
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+      }
+
+      .new-chat-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Enhanced Particle Background -->
+    <div class="particle-container" id="particles"></div>
+    
+    <!-- Neural Network Background -->
+    <div class="neural-bg" id="neuralBg"></div>
+
+    <!-- Credits -->
+    <div class="credits">
+      <div>🚀 <strong>AK AI</strong></div>
+      <div>Created by <strong>Mxhid_dll</strong></div>
+      <div>Powered by Gemini AI</div>
+    </div>
+
+    <div class="container">
+      <!-- Header -->
+      <div class="header glow">
+        <h1 class="title">🤖 AK AI</h1>
+        <p class="subtitle">Next Generation Intelligence Interface</p>
+      </div>
+
+      <!-- Tab System -->
+      <div class="tab-container">
+        <div class="tabs">
+          <button class="tab active" onclick="switchTab('chat1', this)">
+            🤖 AI Assistant
+          </button>
+          <button class="tab" onclick="switchTab('chat2', this)">
+            💻 Code Helper
+          </button>
+          <button class="tab" onclick="switchTab('chat3', this)">
+            🎨 Creative AI
+          </button>
+          <button class="tab" onclick="switchTab('chat4', this)">
+            🔬 Technical Expert
+          </button>
+          <button class="new-chat-btn" onclick="newChat()">
+            ✨ New Chat
+          </button>
+        </div>
+
+        <!-- Chat Tabs -->
+        <div id="chat1" class="tab-content active">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages1">
+              <div class="message ai">
+                <div class="message-bubble">
+                  <strong>🤖 AK AI:</strong> Hello! I'm AK AI, your advanced artificial intelligence assistant. I'm here to help you with any questions, tasks, or conversations you'd like to have. How can I assist you today?
+                </div>
+              </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator1">
+              <div class="typing-text">AK AI is thinking...</div>
+              <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-input-container">
+              <input 
+                type="text" 
+                id="chatInput1" 
+                class="chat-input" 
+                placeholder="Ask me anything... ✨"
+                onkeypress="handleKeyPress(event, 'chat1')"
+              >
+              <button onclick="sendMessage('chat1')" class="send-button" id="sendButton1">
+                🚀
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="chat2" class="tab-content">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages2">
+              <div class="message ai">
+                <div class="message-bubble">
+                  <strong>💻 Code Helper:</strong> I'm your coding companion! I can help with programming, debugging, code review, architecture design, and technical problem-solving. What coding challenge can I help you with?
+                </div>
+              </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator2">
+              <div class="typing-text">Code Helper is analyzing...</div>
+              <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-input-container">
+              <input 
+                type="text" 
+                id="chatInput2" 
+                class="chat-input" 
+                placeholder="Share your code or ask for help... 💻"
+                onkeypress="handleKeyPress(event, 'chat2')"
+              >
+              <button onclick="sendMessage('chat2')" class="send-button" id="sendButton2">
+                💻
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="chat3" class="tab-content">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages3">
+              <div class="message ai">
+                <div class="message-bubble">
+                  <strong>🎨 Creative AI:</strong> I'm your creative partner! I can help with writing, brainstorming, storytelling, art concepts, and creative projects. Let's create something amazing together!
+                </div>
+              </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator3">
+              <div class="typing-text">Creative AI is inspiring...</div>
+              <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-input-container">
+              <input 
+                type="text" 
+                id="chatInput3" 
+                class="chat-input" 
+                placeholder="Let's create something beautiful... 🎨"
+                onkeypress="handleKeyPress(event, 'chat3')"
+              >
+              <button onclick="sendMessage('chat3')" class="send-button" id="sendButton3">
+                🎨
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="chat4" class="tab-content">
+          <div class="chat-container">
+            <div class="chat-messages" id="chatMessages4">
+              <div class="message ai">
+                <div class="message-bubble">
+                  <strong>🔬 Technical Expert:</strong> I'm your technical specialist! I excel at complex problem-solving, system analysis, research, and technical documentation. What technical challenge shall we tackle?
+                </div>
+              </div>
+            </div>
+
+            <div class="typing-indicator" id="typingIndicator4">
+              <div class="typing-text">Technical Expert is processing...</div>
+              <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-input-container">
+              <input 
+                type="text" 
+                id="chatInput4" 
+                class="chat-input" 
+                placeholder="Technical questions welcome... 🔬"
+                onkeypress="handleKeyPress(event, 'chat4')"
+              >
+              <button onclick="sendMessage('chat4')" class="send-button" id="sendButton4">
+                🔬
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Gemini API Configuration
+      const GEMINI_API_KEY = 'AIzaSyBVU2NQ_G3foyY-ejx-l5zSyp6XzMFVDes';
+      const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+      
+      // Chat contexts for different personalities
+      const chatContexts = {
+        chat1: {
+          systemMessage: 'You are AK AI, an advanced and helpful AI assistant. Be engaging, intelligent, helpful with users tasks and requests. Focus on being supportive and informative.',
+          messages: []
+        },
+        chat2: {
+          systemMessage: 'You are a Code Helper AI, specialized in programming, debugging, code review, and technical problem-solving. Help users with coding challenges, explain concepts clearly, and provide working solutions.',
+          messages: []
+        },
+        chat3: {
+          systemMessage: 'You are a Creative AI, focused on creativity, imagination, storytelling, and artistic projects. Be inspiring, innovative, and help users express their creative ideas.',
+          messages: []
+        },
+        chat4: {
+          systemMessage: 'You are a Technical Expert AI, specialized in complex problem-solving, system analysis, research, and technical documentation. Be precise, detailed, and thorough.',
+          messages: []
+        }
+      };
+
+      // Enhanced Particle System with More Particles
+      function createEnhancedParticles() {
+        const container = document.getElementById('particles');
+        container.innerHTML = '';
+        const particleCount = 150; // Increased particle count
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          const type = Math.floor(Math.random() * 5) + 1; // Now 5 types
+          
+          particle.className = `particle particle-${type}`;
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 10 + 's';
+          particle.style.animationDuration = (Math.random() * 6 + 4) + 's';
+          
+          container.appendChild(particle);
+        }
+      }
+
+      // Neural Network Background with Nodes
+      function createNeuralNetwork() {
+        const container = document.getElementById('neuralBg');
+        container.innerHTML = '';
+        const lineCount = 20;
+        const nodeCount = 30;
+
+        // Create neural lines
+        for (let i = 0; i < lineCount; i++) {
+          const line = document.createElement('div');
+          line.className = 'neural-line';
+          line.style.left = Math.random() * 100 + '%';
+          line.style.top = Math.random() * 100 + '%';
+          line.style.width = Math.random() * 300 + 50 + 'px';
+          line.style.transform = `rotate(${Math.random() * 360}deg)`;
+          line.style.animationDelay = Math.random() * 4 + 's';
+          
+          container.appendChild(line);
+        }
+
+        // Create neural nodes
+        for (let i = 0; i < nodeCount; i++) {
+          const node = document.createElement('div');
+          node.className = 'neural-node';
+          node.style.left = Math.random() * 100 + '%';
+          node.style.top = Math.random() * 100 + '%';
+          node.style.animationDelay = Math.random() * 3 + 's';
+          
+          container.appendChild(node);
+        }
+      }
+
+      // Hover Particle Effect
+      function createHoverParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'hover-particle';
+        particle.style.left = x + 'px';
+        particle.style.top = y + 'px';
+        document.body.appendChild(particle);
+        
+        setTimeout(() => {
+          particle.remove();
+        }, 2000);
+      }
+
+      // Add hover effects to interactive elements
+      document.addEventListener('mousemove', (e) => {
+        if (Math.random() < 0.1) { // 10% chance to create particle on mouse move
+          createHoverParticle(e.clientX, e.clientY);
+        }
+      });
+
+      // Tab Switching
+      function switchTab(tabId, element) {
+        // Remove active class from all tabs and content
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        element.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+        
+        // Focus on input
+        const input = document.getElementById(`chatInput${tabId.slice(-1)}`);
+        if (input) input.focus();
+      }
+
+      // New Chat Function
+      function newChat() {
+        const activeTab = document.querySelector('.tab-content.active');
+        if (activeTab) {
+          const chatId = activeTab.id;
+          const messagesContainer = document.getElementById(`chatMessages${chatId.slice(-1)}`);
+          
+          // Clear messages except the first one (greeting)
+          const messages = messagesContainer.children;
+          for (let i = messages.length - 1; i > 0; i--) {
+            messages[i].remove();
+          }
+          
+          // Clear context
+          if (chatContexts[chatId]) {
+            chatContexts[chatId].messages = [];
+          }
+          
+          // Clear input
+          const input = document.getElementById(`chatInput${chatId.slice(-1)}`);
+          if (input) {
+            input.value = '';
+            input.focus();
+          }
+          
+          console.log('New chat started in', chatId);
+        }
+      }
+
+      // Message Functions
+      function handleKeyPress(event, chatId) {
+        if (event.key === 'Enter') {
+          sendMessage(chatId);
+        }
+      }
+
+      function addMessage(content, isUser = false, chatId) {
+        const messagesContainer = document.getElementById(`chatMessages${chatId.slice(-1)}`);
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+        
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.className = 'message-bubble';
+        
+        if (isUser) {
+          bubbleDiv.innerHTML = `<strong>👤 You:</strong> ${content}`;
+        } else {
+          const aiNames = {
+            chat1: '🤖 AK AI',
+            chat2: '💻 Code Helper',
+            chat3: '🎨 Creative AI',
+            chat4: '🔬 Technical Expert'
+          };
+          bubbleDiv.innerHTML = `<strong>${aiNames[chatId]}:</strong> ${content}`;
+        }
+        
+        messageDiv.appendChild(bubbleDiv);
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        // Add to context
+        if (chatContexts[chatId]) {
+          chatContexts[chatId].messages.push({
+            role: isUser ? 'user' : 'model',
+            parts: [{ text: content }]
+          });
+        }
+      }
+
+      function showTyping(chatId) {
+        document.getElementById(`typingIndicator${chatId.slice(-1)}`).style.display = 'block';
+        const messagesContainer = document.getElementById(`chatMessages${chatId.slice(-1)}`);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function hideTyping(chatId) {
+        document.getElementById(`typingIndicator${chatId.slice(-1)}`).style.display = 'none';
+      }
+
+      async function sendMessage(chatId) {
+        const input = document.getElementById(`chatInput${chatId.slice(-1)}`);
+        const sendButton = document.getElementById(`sendButton${chatId.slice(-1)}`);
+        const message = input.value.trim();
+
+        if (!message) return;
+
+        addMessage(message, true, chatId);
+        input.value = '';
+        sendButton.disabled = true;
+        showTyping(chatId);
+
+        try {
+          const context = chatContexts[chatId];
+          
+          // Prepare messages for Gemini API
+          const contents = [
+            {
+              parts: [{ text: context.systemMessage }]
+            },
+            ...context.messages.slice(-10), // Keep last 10 messages for context
+            {
+              parts: [{ text: message }]
+            }
+          ];
+
+          const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              contents: contents
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error(`API Error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          const aiResponse = data.candidates[0].content.parts[0].text;
+
+          hideTyping(chatId);
+          
+          // Simulate typing effect
+          await typeMessage(aiResponse, chatId);
+          
+        } catch (error) {
+          hideTyping(chatId);
+          console.error('Error:', error);
+          addMessage(`❌ Connection error: ${error.message}. Please try again.`, false, chatId);
+        } finally {
+          sendButton.disabled = false;
+        }
+      }
+
+      // Typing effect for AI responses
+      async function typeMessage(text, chatId) {
+        const messagesContainer = document.getElementById(`chatMessages${chatId.slice(-1)}`);
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message ai';
+        
+        const bubbleDiv = document.createElement('div');
+        bubbleDiv.className = 'message-bubble';
+        
+        const aiNames = {
+          chat1: '🤖 AK AI',
+          chat2: '💻 Code Helper',
+          chat3: '🎨 Creative AI',
+          chat4: '🔬 Technical Expert'
+        };
+        
+        bubbleDiv.innerHTML = `<strong>${aiNames[chatId]}:</strong> <span class="typing-text-content"></span>`;
+        messageDiv.appendChild(bubbleDiv);
+        messagesContainer.appendChild(messageDiv);
+        
+        const contentSpan = bubbleDiv.querySelector('.typing-text-content');
+        
+        // Type out the message
+        for (let i = 0; i <= text.length; i++) {
+          contentSpan.textContent = text.slice(0, i);
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          await new Promise(resolve => setTimeout(resolve, 20));
+        }
+        
+        // Add to context
+        if (chatContexts[chatId]) {
+          chatContexts[chatId].messages.push({
+            role: 'model',
+            parts: [{ text: text }]
+          });
+        }
+      }
+
+      // Initialize everything
+      function init() {
+        createEnhancedParticles();
+        createNeuralNetwork();
+        
+        // Focus on first chat input
+        document.getElementById('chatInput1').focus();
+        
+        // Add some random effects periodically
+        setInterval(() => {
+          if (Math.random() < 0.3) {
+            createNeuralNetwork();
+          }
+        }, 8000);
+
+        setInterval(() => {
+          createEnhancedParticles();
+        }, 15000);
+        
+        console.log('🚀 AK AI System Initialized');
+        console.log('🤖 Powered by Mxhid AI');
+        console.log('✨ Created by Mxhid_dll');
+      }
+
+      // Start the application
+      window.addEventListener('load', init);
+    </script>
+    
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  </body>
+</html>
